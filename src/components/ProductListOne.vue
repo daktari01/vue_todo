@@ -12,21 +12,23 @@
 </template>
 
 <script>
-export default {
-  computed: {
-    products(){
-      return this.$store.state.products;
+  import { mapActions, mapGetters } from 'vuex';
+
+  export default {
+    computed: {
+      products(){
+        return this.$store.state.products;
+      },
+      ...mapGetters([
+        'saleProducts'
+      ])
     },
-    saleProducts(){
-      return this.$store.getters.saleProducts;
-    }
-  },
-  methods: {
-    reducePrice: function(amount){
-      this.$store.dispatch('reducePrice', amount);
+    methods: {
+      ...mapActions([
+        'reducePrice'
+      ])
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
