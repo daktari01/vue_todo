@@ -5,19 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    todos: [
-      {
-        task: 'Code',
-        completed: true
-      },
-      {
-        task: 'Eat',
-        completed: false
-      },
-      {
-        task: 'Sleep',
-        completed: false
-      }
+    products: [
+      {name: 'Banana skin', price: 20},
+      {name: 'Shiny star', price: 40},
+      {name: 'Green shells', price: 60},
+      {name: 'Red shells', price: 80}
     ]
   },
   mutations: {
