@@ -13,9 +13,6 @@ export default new Vuex.Store({
       {name: 'Red shells', price: 80}
     ]
   },
-  actions: {
-
-  },
   getters: {
     saleProducts: state => {
       var saleProducts = state.products.map(product => {
@@ -28,10 +25,17 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    reducePrice: state => {
+    reducePrice: (state, payload) => {
       state.products.forEach(product => {
-        product.price -= 1;
+        product.price -= payload;
       })
+    }
+  },
+  actions: {
+    reducePrice: (context, payload) => {
+      setTimeout(function () {
+        context.commit('reducePrice', payload)
+      }, 2000)
     }
   }
 })
